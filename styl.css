@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url('1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.top-bar {
+    background-color: darkolivegreen;
+    color: white;
+    padding: 10px 0;
+}
+
+.top-bar-content {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 80px;
+}
+
+.navbar-options {
+    display: flex;
+}
+
+.navbar-options a {
+    background-color: darkolivegreen;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    min-width: 150px;
+    text-align: center;
+}
+
+/* Tambahan untuk konsistensi */
+.container {
+    width: 500px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary,
+.btn-darkolivegreen {
+    background-color: darkolivegreen;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #ddd;
+    color: black;
+}
+
+.btn-danger {
+    background-color: red;
+    color: white;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.welcome-title {
+    margin-bottom: 20px;
+}
+
+/* Styling untuk todolist */
+.input-section {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#categorySelect {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+#addTaskButton {
+    padding: 10px 20px;
+    background-color: darkolivegreen;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#taskList li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#taskList li span {
+    flex-grow: 1;
+}
+
+#taskList li button {
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: darkolivegreen;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+#taskList li button.delete {
+    background-color: red;
+}

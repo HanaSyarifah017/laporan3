@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="halaman.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <img src="2.png" alt="Alphabet Logo" class="logo">
+            <div class="navbar-options">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="todolist.html">Todolist</a>
+                <a href="all.html">All Task</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="percentage-box">
+            <h2>Persentase Todolist yang Sudah Selesai</h2>
+            <canvas id="percentageCanvas" width="150" height="150"></canvas>
+            <p id="percentageText">0%</p>
+        </div>
+        <div class="unfinished-tasks">
+            <h2 id="unfinishedTasksTitle"></h2>
+            <ul id="unfinishedTaskList"></ul>
+        </div>
+    </div>
+    <script>
+        // ... (kode JavaScript yang sudah ada)
+    </script>
+</body>
+
+</html>
+<script>
+    function drawPercentage(percentage) {
+        const canvas = document.getElementById('percentageCanvas');
+        const ctx = canvas.getContext('2d');
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const radius = 70;
+        const startAngle = -Math.PI / 2;
+        const endAngle = startAngle + (percentage / 100) * 2 * Math.PI;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Lingkaran latar belakang
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.strokeStyle = '#ddd';
+        ctx.lineWidth = 10;
+        ctx.stroke();
+
+        // Lingkaran persentase
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+        ctx.strokeStyle = 'darkolivegreen';
+        ctx.lineWidth = 10;
+        ctx.stroke();
+
+        // Teks persentase
+        document.getElementById('percentageText').textContent = percentage + '%';
+    }
+
+    function calculatePercentage() {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        const completedTasks = tasks.filter(task => task.checked).length;
+        const percentage = tasks.length > 0 ? Math.round((completedTasks / tasks.length) * 100) : 0;
+        drawPercentage(percentage);
+    }
+
+    function displayUnfinishedTasks() {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        const unfinishedTasks = tasks.filter(task => !task.checked);
+        const unfinishedTaskList = document.getElementById('unfinishedTaskList');
+        const unfinishedTasksTitle = document.getElementById('unfinishedTasksTitle');
+        unfinishedTaskList.innerHTML = '';
+
+        if (tasks.length === 0) {
+            unfinishedTasksTitle.innerHTML = "Kamu belum menambahkan tugas. <a href='todolist.html'>Ayo buat todolist!</a>";
+        } else if (unfinishedTasks.length === 0) {
+            unfinishedTasksTitle.textContent = "Selamat, kamu sudah selesai!";
+        } else if (unfinishedTasks.length === tasks.length) {
+            unfinishedTasksTitle.textContent = "Kamu belum mengerjakan tugas.";
+        } else {
+            unfinishedTasksTitle.textContent = "Semangat, sedikit yang belum kamu kerjakan:";
+        }
+
+        unfinishedTasks.forEach(task => {
+            const li = document.createElement('li');
+            li.textContent = task.text + ' (' + task.category + ')';
+            unfinishedTaskList.appendChild(li);
+        });
+    }
+    function searchTasks() {
+        const searchTerm = document.getElementById('searchTask').value.toLowerCase();
+        if (window.location.pathname.includes('dashboard.html')) {
+            window.location.href = 'todolist.html?search=' + searchTerm;
+        } else {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            const filteredTasks = tasks.filter(task => task.text.toLowerCase().includes(searchTerm));
+            displayTasks(filteredTasks);
+        }
+    }
+
+    // Hitung dan gambar persentase saat halaman dimuat
+    calculatePercentage();
+    displayUnfinishedTasks();
+</script>
+    </body>
+    
+    </html>

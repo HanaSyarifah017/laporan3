@@ -1,0 +1,94 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 500px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-section {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#categorySelect {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+#addTaskButton {
+    padding: 10px 20px;
+    background-color: darkolivegreen;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#taskList li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#taskList li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#taskList li span {
+    flex-grow: 1;
+}
+
+#taskList li button {
+    margin-left: 5px;
+    cursor: pointer;
+    background-color: darkolivegreen;
+    /* Menambahkan warna latar belakang yang sama */
+    color: white;
+    /* Menambahkan warna teks putih agar sesuai */
+    border: none;
+    /* Menghapus border agar sesuai */
+    padding: 5px 10px;
+    /* Menambahkan padding agar sesuai */
+    border-radius: 4px;
+    /* Menambahkan border radius agar sesuai */
+}
+
+#taskList li button.delete {
+    background-color: red;
+    /* Mengubah warna tombol hapus menjadi merah */
+}
+.percentage-box {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#percentageCanvas {
+    margin: 20px auto;
+    display: block;
+}
+
+#percentageText {
+    font-size: 24px;
+    font-weight: bold;
+    color: darkolivegreen;
+}

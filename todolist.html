@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="halaman.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <img src="2.png" alt="Alphabet Logo" class="logo">
+            <div class="navbar-options">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="todolist.html">Todolist</a>
+                <a href="all.html">All Task</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Todolist</h1>
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="Tambah tugas baru...">
+            <select id="categorySelect">
+                <option value="Pekerjaan">Pekerjaan</option>
+                <option value="Pelajaran">Pelajaran</option>
+                <option value="Pribadi">Pribadi</option>
+                <option value="Belanja">Belanja</option>
+            </select>
+            <button id="addTaskButton" class="btn btn-darkolivegreen">Tambah</button>
+        </div>
+        <ul id="taskList"></ul>
+        <button id="clearAllButton" class="btn btn-danger">Hapus Semua</button>
+    </div>
+    <script src="todolist.js"></script>
+</body>
+
+</html>

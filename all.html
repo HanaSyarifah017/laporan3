@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tasks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="halaman.css">
+    <style>
+        .task-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .task-list {
+            width: 48%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <img src="2.png" alt="Alphabet Logo" class="logo">
+            <div class="navbar-options">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="todolist.html">Todolist</a>
+                <a href="all.html">All Task</a>
+            </div>
+        </div>
+    </div>
+    <div class="container task-container">
+        <div class="task-list">
+            <h2>Belum Selesai</h2>
+            <ul id="unfinishedTaskList"></ul>
+        </div>
+        <div class="task-list">
+            <h2>Sudah Selesai</h2>
+            <ul id="finishedTaskList"></ul>
+        </div>
+    </div>
+    <script src="all.js"></script>
+</body>
+
+</html>
